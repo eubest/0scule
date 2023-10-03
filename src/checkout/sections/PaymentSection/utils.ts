@@ -62,7 +62,7 @@ export const getFilteredPaymentGateways = (
 		// hence we'd like to have it handled by default
 		if (!shouldBeIncluded && !isAPlugin) {
 			console.warn(`Unhandled payment gateway - name: ${name}, id: ${id}`);
-			return true;
+			return false;
 		}
 
 		return shouldBeIncluded;

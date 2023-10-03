@@ -16,7 +16,7 @@ export function Topbar() {
 				<div className="flex items-center text-center text-sm font-medium text-slate-50 hover:text-slate-300">
 					<StarIcon className="mr-2 h-4 text-yellow-300" />
 					<Link href="https://github.com/saleor/storefront" target="_blank">
-						Star our Storefront Example on GitHub
+						Sculebjc -new verion in work with integrated checkout before release
 					</Link>
 				</div>
 
