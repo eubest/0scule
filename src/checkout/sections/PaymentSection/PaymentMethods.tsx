@@ -1,17 +1,18 @@
+import React from "react";
 import { AdyenDropIn } from "@/checkout/sections/PaymentSection/AdyenDropIn/AdyenDropIn";
 import { PaymentSectionSkeleton } from "@/checkout/sections/PaymentSection/PaymentSectionSkeleton";
-import { DummyCreditCardSection } from "./DummyCreditCardSection"; // Import this component
+import { DummyCreditCardSection } from "./DummyCreditCardSection";
 import { usePayments } from "@/checkout/sections/PaymentSection/usePayments";
 import { useCheckoutUpdateState } from "@/checkout/state/updateStateStore";
 
-export const PaymentMethods = () => {
+export const PaymentMethods: React.FC = () => {
   const { availablePaymentGateways, fetching } = usePayments();
   const {
     changingBillingCountry,
     updateState: { checkoutDeliveryMethodUpdate },
   } = useCheckoutUpdateState();
 
-  const { adyen, dummyCreditCard } = availablePaymentGateways; // Add dummyCreditCard from availablePaymentGateways if it's being returned from your API.
+  const { adyen, dummyCreditCard } = availablePaymentGateways;
 
   if (changingBillingCountry || fetching || checkoutDeliveryMethodUpdate === "loading") {
     return <PaymentSectionSkeleton />;
@@ -20,7 +21,7 @@ export const PaymentMethods = () => {
   return (
     <div className="mb-8">
       {adyen && <AdyenDropIn config={adyen} />}
-      {dummyCreditCard && <DummyCreditCardSection checkout={/* Provide the necessary checkout data here */} />}
+      {dummyCreditCard && <DummyCreditCardSection checkout={/* Provide necessary data */} />}
     </div>
   );
 };
